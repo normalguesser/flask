@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Фильмы</title>
+<title>Фiльми</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
     <div class="content">
-        <h1>Обновить информацию о фильме</h1>
+        <h1>Оновити інформацію про фільм</h1>
         <div class="form">
             <form action="/update/{{movie.id}}" method="POST">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="content" id="content" placeholder="Название фильма" value="{{movie.content}}">
+                        <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму" value="{{movie.content}}">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="dio_rate" id="dio_rate" placeholder="Оценка Димы О" value="{{movie.dio_rate}}">
+                        <input type="number" class="form-control" name="dio_rate" id="dio_rate" placeholder="Оцiнка Дiми О" value="{{movie.dio_rate}}">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="andrew_rate" id="andrew_rate" placeholder="Оценка Андрея О" value="{{movie.andrew_rate}}">
+                        <input type="number" class="form-control" name="andrew_rate" id="andrew_rate" placeholder="Оцiнка Андрiя О" value="{{movie.andrew_rate}}">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="dima_rate" id="dima_rate" placeholder="Оценка Димы Л" value="{{movie.dima_rate}}">
+                        <input type="number" class="form-control" name="dima_rate" id="dima_rate" placeholder="Оцiнка Дiми Л" value="{{movie.dima_rate}}">
                     </div>
                     <div class="col">
-                        <input type="submit" class="form-control" value="Обновить" style="background-color:cornflowerblue; color:white;">
+                        <input type="submit" class="form-control" value="Оновить" style="background-color:cornflowerblue; color:white;">
                     </div>
                 </div>
             </form>

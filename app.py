@@ -44,7 +44,7 @@ def add():
             db.session.commit()
             return redirect('/')
         except:
-            return 'issue'
+            return 'Помилка: не вдалось додати фiльм.'
 
     else:
         moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.date_created.desc()).all()
@@ -60,7 +60,7 @@ def index():
         movie_dima_rate = request.form['dima_rate']
         
         if movie_content == '':
-            return 'issue: add title'
+            return 'Помилка: заголовок не повинен бути порожнiм.'
         
         if int(movie_dio_rate) > 11:
             movie_dio_rate = '10'
@@ -84,7 +84,7 @@ def index():
             db.session.commit()
             return redirect('/')
         except:
-            return 'issue'
+            return 'Помилка: не вдалось додати фiльм.'
 
     else:
         movies = MovieBase.query.order_by(MovieBase.date_created.desc()).all()
@@ -101,7 +101,7 @@ def delete(id):
         db.session.commit()
         return redirect('/')
     except:
-        return 'delete issue'
+        return 'Помилка: не вдалось видалити.'
 
 @app.route('/deleteMovie/<int:id>')
 def deleteMovie(id):
@@ -112,7 +112,7 @@ def deleteMovie(id):
         db.session.commit()
         return redirect('/')
     except:
-        return 'delete issue'
+        return 'Помилка: не вдалось видалити.'
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
@@ -125,7 +125,7 @@ def update(id):
         movie.dima_rate = request.form['dima_rate']
 
         if movie.content == '':
-            return 'issue: add title'
+            return 'Помилка: заголовок не повинен бути порожнiм.'
         
         if int(movie.dio_rate) > 11:
             movie.dio_rate = '10'
@@ -146,7 +146,7 @@ def update(id):
             db.session.commit()
             return redirect('/')
         except:
-            return 'update issue'
+            return 'Помилка: не вдалось оновити.'
 
     else:
         return render_template('update.html', movie=movie)
@@ -158,7 +158,7 @@ def randomMovie():
         movie = random.choice(moviesToWatch)
         return render_template('random.html', movie=movie)
     else:
-        return 'Список фильмов для выбора пуст'
+        return 'Список фільмів для вибору порожній'
 
 if __name__ == "__main__":
     app.run(debug=True)

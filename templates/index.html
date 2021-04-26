@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Фильмы</title>
+<title>Фiльми</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
-    <h1>Фильмы <small class="text-muted">
+    <h1>Фiльмы <small class="text-muted">
         <button type="button" style="border:none;" class="btn btn-primary text-muted bg-transparent" data-toggle="modal" data-target="#exampleModal1">
                 ver:1.5
         </button>
@@ -14,7 +14,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel"><b>История изменений:</b></h4>
+                        <h4 class="modal-title" id="exampleModalLabel"><b>Історія змін:</b></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -26,10 +26,10 @@
                         <h6>
                             <dd>
                                 <ul>
-									<li>Добавлен день просмотра фильма.</li>
-									<li>Добавлен общий рейтинг фильма.</li>
-                                    <li>Убрана кнопка удалить в "Просмотренные фильмы".</li>
-                                    <li>Исправлена кнопка удалить в "Посмотреть в след. раз".</li>
+									<li>Доданий день перегляду фільму.</li>
+									<li>Додано загальний рейтинг фільму.</li>
+                                    <li>Прибрана кнопка видалити в "Переглянуті фільми".</li>
+                                    <li>Виправлена кнопка видалити в "Подивитися наступного разу".</li>
                                 </ul>
                             </dd>
                         </h6>
@@ -39,14 +39,14 @@
                         <h6>
                             <dd>
                                 <ul>
-                                    <li>Сортировка оценок отображается корректно. </li>
-                                    <li>Добавлена проверка перед удалением фильма.</li>
+                                    <li>Сортування оцінок відображається коректно. </li>
+                                    <li>Додана перевірка перед видаленням фільму.</li>
                                 </ul>
                             </dd>
                         </h6>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
                     </div>
                 </div>
             </div>
@@ -55,10 +55,10 @@
 
     <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#home">Просмотренные фильмы</a>
+            <a class="nav-link active" data-toggle="pill" href="#home">Переглянуті фільми</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#menu1">Посмотреть в следующий раз</a>
+            <a class="nav-link" data-toggle="pill" href="#menu1">Подивитися наступного разу</a>
         </li>
         </ul>
         <div class="tab-content">
@@ -68,24 +68,24 @@
                     <form action="/" method="POST">
                         <div class="row">
                             <div class="col" align="center">
-                            	<b>Фильм</b>
-                                <input type="text" class="form-control" name="content" id="content" placeholder="Название фильма">
+                            	<b>Фiльм</b>
+                                <input type="text" class="form-control" name="content" id="content" placeholder="Назва фiльму">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оценка Димы О</b>
-                                <input type="number" class="form-control" name="dio_rate" id="dio_rate" value="0" placeholder="Оценка Дима О">
+                            	<b>Оцiнка Дiми О</b>
+                                <input type="number" class="form-control" name="dio_rate" id="dio_rate" value="0" placeholder="Оцiнка Дiми О">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оценка Андрея О</b>
-                                <input type="number" class="form-control" name="andrew_rate" id="andrew_rate" value="0" placeholder="Оценка Андрея О">
+                            	<b>Оцiнка Андрiя О</b>
+                                <input type="number" class="form-control" name="andrew_rate" id="andrew_rate" value="0" placeholder="Оцiнка Андрiя О">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оценка Димы Л</b>
-                                <input type="number" class="form-control" name="dima_rate" id="dima_rate" value="0" placeholder="Оценка Димы Л">
+                            	<b>Оцiнка Дiми Л</b>
+                                <input type="number" class="form-control" name="dima_rate" id="dima_rate" value="0" placeholder="Оцiнка Дiми Л">
                             </div>
                             <div class="col" align="center">
                             	<b>.</b>
-                                <input type="submit" class="form-control" value="Добавить" style="background-color:cornflowerblue; color:white;">
+                                <input type="submit" class="form-control" value="Додати" style="background-color:cornflowerblue; color:white;">
                             </div>
                         </div>
                     </form>
@@ -93,14 +93,14 @@
                 <br>
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable">
                     <tr>
-                        <th onclick="sortTable(0)">Фильм</th>
-                        <th onclick="sortTable(1)">Дима О</th>
-                        <th onclick="sortTable(2)">Андрей О</th>
-                        <th onclick="sortTable(3)">Дима Л</th>
-                        <th onclick="sortTable(4)">Общий</th>
-                        <th onclick="sortTable(5)">Добавлен</th>
+                        <th onclick="sortTable(0)">Фiльм</th>
+                        <th onclick="sortTable(1)">Дiма О</th>
+                        <th onclick="sortTable(2)">Андрiй О</th>
+                        <th onclick="sortTable(3)">Дiма Л</th>
+                        <th onclick="sortTable(4)">Загальний</th>
+                        <th onclick="sortTable(5)">Доданий</th>
                         <!--<th onclick="sortTable(5)">Опции</th>-->
-                        <th>Опции</th>
+                        <th>Опції</th>
                     </tr>
                     {% for movie in movies %}
                     <tr>
@@ -111,7 +111,7 @@
                         <td>{{ movie.dima_rate + movie.andrew_rate + movie.dio_rate }}</td>
                         <td>{{ movie.date_created.date() }}</td>
                         <td>
-                            <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редактировать</a>                           
+                            <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>                           
                         </td>
                     </tr>
                     {% endfor %}
@@ -120,21 +120,21 @@
         </div>
         <div id="menu1" class="container tab-pane fade"><br>
             <center>
-                <a href="/add" class="btn btn-success active" role="button" aria-pressed="true">Добавить фильм для просмотра</a>
-                <a href="/random" class="btn btn-info active" role="button" aria-pressed="true">Выбрать случайный фильм</a>
+                <a href="/add" class="btn btn-success active" role="button" aria-pressed="true">Додати фільм для перегляду</a>
+                <a href="/random" class="btn btn-info active" role="button" aria-pressed="true">Вибрати випадковий фільм</a>
             </center>
 
             <br>
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable1">
                 <tr>
-                    <th onclick="sortQuickTable(0)">Фильм</th>
-                    <th>Опции</th>
+                    <th onclick="sortQuickTable(0)">Фiльм</th>
+                    <th>Опції</th>
                 </tr>
                 {% for movie in moviesToWatch %}
                 <tr>
                     <td>{{ movie.next_movie }}</td>
                     <td>
-                        <a href="/deleteMovie/{{movie.id}}" class="btn btn-danger active btn-sm" role="button" aria-pressed="true">Удалить</a>                          
+                        <a href="/deleteMovie/{{movie.id}}" class="btn btn-danger active btn-sm" role="button" aria-pressed="true">Видалити</a>                          
                     </td>
                 </tr>
                 {% endfor %}
