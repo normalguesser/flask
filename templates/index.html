@@ -72,16 +72,16 @@
                                 <input type="text" class="form-control" name="content" id="content" placeholder="Назва фiльму">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оцiнка Дiми О</b>
-                                <input type="number" class="form-control" name="dio_rate" id="dio_rate" value="0" placeholder="Оцiнка Дiми О">
+                            	<b>Оцiнка Вероніки</b>
+                                <input type="number" class="form-control" name="nika_rate" id="nika_rate" value="0" placeholder="Оцiнка Вероніки">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оцiнка Андрiя О</b>
-                                <input type="number" class="form-control" name="andrew_rate" id="andrew_rate" value="0" placeholder="Оцiнка Андрiя О">
+                            	<b>Оцiнка Дiми</b>
+                                <input type="number" class="form-control" name="dima_rate" id="dima_rate" value="0" placeholder="Оцiнка Дiми">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оцiнка Дiми Л</b>
-                                <input type="number" class="form-control" name="dima_rate" id="dima_rate" value="0" placeholder="Оцiнка Дiми Л">
+                            	<b>Дата перегляду</b>
+                                <input type="date" class="form-control" name="date_created" id="date_created" placeholder="date_created">
                             </div>
                             <div class="col" align="center">
                             	<b>.</b>
@@ -93,23 +93,23 @@
                 <br>
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable">
                     <tr>
-                        <th onclick="sortTable(0)">Фiльм</th>
-                        <th onclick="sortTable(1)">Дiма О</th>
-                        <th onclick="sortTable(2)">Андрiй О</th>
-                        <th onclick="sortTable(3)">Дiма Л</th>
-                        <th onclick="sortTable(4)">Загальний</th>
-                        <th onclick="sortTable(5)">Доданий</th>
+                        <th onclick="sortTable(0)">#</th>
+                        <th onclick="sortTable(1)">Фiльм</th>
+                        <th onclick="sortTable(2)">Оцiнка Вероніки</th>
+                        <th onclick="sortTable(3)">Оцiнка Дiми</th>
+                        <th onclick="sortTable(4)">Загальна оцiнка</th>
+                        <th onclick="sortTable(5)">Дата перегляду</th>
                         <!--<th onclick="sortTable(5)">Опции</th>-->
                         <th>Опції</th>
                     </tr>
                     {% for movie in movies %}
                     <tr>
+                        <td>{{ movie.id }}</td>
                         <td>{{ movie.content }}</td>
-                        <td>{{ movie.dio_rate }}</td>
-                        <td>{{ movie.andrew_rate }}</td>
+                        <td>{{ movie.nika_rate }}</td>
                         <td>{{ movie.dima_rate }}</td>
-                        <td>{{ movie.dima_rate + movie.andrew_rate + movie.dio_rate }}</td>
-                        <td>{{ movie.date_created.date() }}</td>
+                        <td>{{ movie.dima_rate + movie.nika_rate }}</td>
+                        <td>{{ movie.date_created }}</td>
                         <td>
                             <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>                           
                         </td>

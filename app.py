@@ -17,10 +17,9 @@ db = SQLAlchemy(app)
 class MovieBase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    dio_rate = db.Column(db.Integer, default=0)
-    andrew_rate = db.Column(db.Integer, default=0)
+    nika_rate = db.Column(db.Integer, default=0)
     dima_rate = db.Column(db.Integer, default=0)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    date_created = db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
         return '<Task %r>' % self.id
@@ -55,29 +54,24 @@ def index():
     if request.method == 'POST':
         
         movie_content = request.form['content']
-        movie_dio_rate = request.form['dio_rate']
-        movie_andrew_rate = request.form['andrew_rate']
+        movie_nika_rate = request.form['nika_rate']
         movie_dima_rate = request.form['dima_rate']
-        
+        movie_date_created = request.form['date_created']
+
         if movie_content == '':
             return 'Помилка: заголовок не повинен бути порожнiм.'
         
-        if int(movie_dio_rate) > 11:
-            movie_dio_rate = '10'
-        if int(movie_dio_rate) < 0:
-            movie_dio_rate = '0'
-            
-        if int(movie_andrew_rate) > 11:
-            movie_andrew_rate = '10'
-        if int(movie_andrew_rate) < 0:
-            movie_andrew_rate = '0'
+        if int(movie_nika_rate) > 11:
+            movie_nika_rate = '10'
+        if int(movie_nika_rate) < 0:
+            movie_nika_rate = '0'
 
         if int(movie_dima_rate) > 11:
             movie_dima_rate = '10'
         if int(movie_dima_rate) < 0:
             movie_dima_rate = '0'
         
-        new_movie = MovieBase(content=movie_content, dio_rate=movie_dio_rate, andrew_rate=movie_andrew_rate, dima_rate=movie_dima_rate)
+        new_movie = MovieBase(content=movie_content, nika_rate=movie_nika_rate, dima_rate=movie_dima_rate, date_created=movie_date_created)
 
         try:
             db.session.add(new_movie)
@@ -87,7 +81,7 @@ def index():
             return 'Помилка: не вдалось додати фiльм.'
 
     else:
-        movies = MovieBase.query.order_by(MovieBase.date_created.desc()).all()
+        movies = MovieBase.query.order_by(MovieBase.id.desc()).all()
         moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.date_created.desc()).all()
 
         return render_template('index.html', movies=movies, moviesToWatch=moviesToWatch)
@@ -120,22 +114,17 @@ def update(id):
 
     if request.method == 'POST':
         movie.content = request.form['content']
-        movie.dio_rate = request.form['dio_rate']
-        movie.andrew_rate = request.form['andrew_rate']
+        movie.nika_rate = request.form['nika_rate']
         movie.dima_rate = request.form['dima_rate']
+        movie.date_created = request.form['date_created']
 
         if movie.content == '':
             return 'Помилка: заголовок не повинен бути порожнiм.'
-        
-        if int(movie.dio_rate) > 11:
-            movie.dio_rate = '10'
-        if int(movie.dio_rate) < 0:
-            movie.dio_rate = '0'
             
-        if int(movie.andrew_rate) > 11:
-            movie.andrew_rate = '10'
-        if int(movie.andrew_rate) < 0:
-            movie.andrew_rate = '0'
+        if int(movie.nika_rate) > 11:
+            movie.nika_rate = '10'
+        if int(movie.nika_rate) < 0:
+            movie.nika_rate = '0'
 
         if int(movie.dima_rate) > 11:
             movie.dima_rate = '10'
