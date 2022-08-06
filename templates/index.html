@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Фiльми</title>
+<title>Фільми</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
-    <h1>Фiльмы <small class="text-muted">
+    <h1>Фільми <small class="text-muted">
         <button type="button" style="border:none;" class="btn btn-primary text-muted bg-transparent" data-toggle="modal" data-target="#exampleModal1">
                 ver:1.5
         </button>
@@ -14,7 +14,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel"><b>Історія змін:</b></h4>
+                        <h4 class="modal-title" id="exampleModalLabel"><b>Історія оновлень:</b></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -26,8 +26,8 @@
                         <h6>
                             <dd>
                                 <ul>
-									<li>Доданий день перегляду фільму.</li>
-									<li>Додано загальний рейтинг фільму.</li>
+									<li>Добано день перегляду фільму.</li>
+									<li>Добано загальний рейтинг фільму.</li>
                                     <li>Прибрана кнопка видалити в "Переглянуті фільми".</li>
                                     <li>Виправлена кнопка видалити в "Подивитися наступного разу".</li>
                                 </ul>
@@ -39,7 +39,7 @@
                         <h6>
                             <dd>
                                 <ul>
-                                    <li>Сортування оцінок відображається коректно. </li>
+                                    <li>Сортування оцінок відображається корректно. </li>
                                     <li>Додана перевірка перед видаленням фільму.</li>
                                 </ul>
                             </dd>
@@ -68,23 +68,35 @@
                     <form action="/" method="POST">
                         <div class="row">
                             <div class="col" align="center">
-                            	<b>Фiльм</b>
-                                <input type="text" class="form-control" name="content" id="content" placeholder="Назва фiльму">
+                                <b>Фільм</b>
+                                <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оцiнка Вероніки</b>
-                                <input type="number" class="form-control" name="nika_rate" id="nika_rate" value="0" placeholder="Оцiнка Вероніки">
+                                <b>Діми Л</b>
+                                <input type="number" class="form-control" name="diml_rate" min="0" max="10" id="diml_rate" value="0" placeholder="Оцінка Діми Л">
                             </div>
                             <div class="col" align="center">
-                            	<b>Оцiнка Дiми</b>
-                                <input type="number" class="form-control" name="dima_rate" id="dima_rate" value="0" placeholder="Оцiнка Дiми">
+                                <b>Діми О</b>
+                                <input type="number" class="form-control" name="dimo_rate" min="0" max="10" id="dimo_rate" value="0" placeholder="Оцінка Діми О">
                             </div>
                             <div class="col" align="center">
-                            	<b>Дата перегляду</b>
+                                <b>Андрохи</b>
+                                <input type="number" class="form-control" name="andr_rate" min="0" max="10" id="andr_rate" value="0" placeholder="Оцінка Андрохи">
+                            </div>
+                            <div class="col" align="center">
+                                <b>Артохи</b>
+                                <input type="number" class="form-control" name="artm_rate" min="0" max="10" id="artm_rate" value="0" placeholder="Оцінка Артохи">
+                            </div>
+                            <div class="col" align="center">
+                                <b>Макси</b>
+                                <input type="number" class="form-control" name="maks_rate" min="0" max="10" id="maks_rate" value="0" placeholder="Оцінка Макси">
+                            </div>
+                            <div class="col" align="center">
+                                <b>Дата перегляду</b>
                                 <input type="date" class="form-control" name="date_created" id="date_created" placeholder="date_created">
                             </div>
                             <div class="col" align="center">
-                            	<b>.</b>
+                                <b>.</b>
                                 <input type="submit" class="form-control" value="Додати" style="background-color:cornflowerblue; color:white;">
                             </div>
                         </div>
@@ -94,11 +106,14 @@
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable">
                     <tr>
                         <th onclick="sortTable(0)">#</th>
-                        <th onclick="sortTable(1)">Фiльм</th>
-                        <th onclick="sortTable(2)">Оцiнка Вероніки</th>
-                        <th onclick="sortTable(3)">Оцiнка Дiми</th>
-                        <th onclick="sortTable(4)">Загальна оцiнка</th>
-                        <th onclick="sortTable(5)">Дата перегляду</th>
+                        <th onclick="sortTable(1)">Фільм</th>
+                        <th onclick="sortTable(2)">Оцінка Діми Л</th>
+                        <th onclick="sortTable(3)">Оцінка Діми О</th>
+                        <th onclick="sortTable(4)">Оцінка Андрохи</th>
+                        <th onclick="sortTable(5)">Оцінка Артохи</th>
+                        <th onclick="sortTable(6)">Оцінка Макси</th>
+                        <th onclick="sortTable(7)">Загальна оцінка</th>
+                        <th onclick="sortTable(8)">Дата перегляду</th>
                         <!--<th onclick="sortTable(5)">Опции</th>-->
                         <th>Опції</th>
                     </tr>
@@ -106,12 +121,15 @@
                     <tr>
                         <td>{{ movie.id }}</td>
                         <td>{{ movie.content }}</td>
-                        <td>{{ movie.nika_rate }}</td>
-                        <td>{{ movie.dima_rate }}</td>
-                        <td>{{ movie.dima_rate + movie.nika_rate }}</td>
+                        <td>{{ movie.diml_rate }}</td>
+                        <td>{{ movie.dimo_rate }}</td>
+                        <td>{{ movie.andr_rate }}</td>
+                        <td>{{ movie.artm_rate }}</td>
+                        <td>{{ movie.maks_rate }}</td>
+                        <td>{{ movie.diml_rate + movie.dimo_rate + movie.andr_rate + movie.artm_rate + movie.maks_rate }}</td>
                         <td>{{ movie.date_created }}</td>
                         <td>
-                            <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>                           
+                            <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -121,13 +139,13 @@
         <div id="menu1" class="container tab-pane fade"><br>
             <center>
                 <a href="/add" class="btn btn-success active" role="button" aria-pressed="true">Додати фільм для перегляду</a>
-                <a href="/random" class="btn btn-info active" role="button" aria-pressed="true">Вибрати випадковий фільм</a>
+                <a href="/random" class="btn btn-info active" role="button" aria-pressed="true">Обрати випадковий фільм</a>
             </center>
 
             <br>
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable1">
                 <tr>
-                    <th onclick="sortQuickTable(0)">Фiльм</th>
+                    <th onclick="sortQuickTable(0)">Фільм</th>
                     <th>Опції</th>
                 </tr>
                 {% for movie in moviesToWatch %}

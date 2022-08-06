@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Фiльми</title>
+<title>Фільми</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
     <div class="content">
-        <h1>Додати фiльм</h1>
+        <h1>Додати фільм</h1>
         <div class="form">
             <form action="/add/" method="POST">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="next_movie" id="next_movie" placeholder="Назва фiльму">
+                        <input type="text" class="form-control" name="next_movie" id="next_movie" placeholder="Назва фільму">
                     </div>
                     <div class="col">
                         <input type="submit" class="form-control" value="Додати" style="background-color:cornflowerblue; color:white;">            
