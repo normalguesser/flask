@@ -7,9 +7,6 @@
 {% block body %}
 <div class="container-fluid">
     <h1>Фільми <small class="text-muted">
-        <button type="button" style="border:none;" class="btn btn-primary text-muted bg-transparent" data-toggle="modal" data-target="#exampleModal1">
-                ver:1.5
-        </button>
         <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -72,31 +69,15 @@
                                 <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму">
                             </div>
                             <div class="col" align="center">
-                                <b>Діми Л</b>
-                                <input type="number" class="form-control" name="diml_rate" min="0" max="10" id="diml_rate" value="0" placeholder="Оцінка Діми Л">
+                                <b>Оцінка Діми</b>
+                                <input type="number" class="form-control" name="diml_rate" min="0" max="10" id="diml_rate" value="0" placeholder="Оцінка Діми">
                             </div>
                             <div class="col" align="center">
-                                <b>Діми О</b>
-                                <input type="number" class="form-control" name="dimo_rate" min="0" max="10" id="dimo_rate" value="0" placeholder="Оцінка Діми О">
+                                <b>Оцінка Насті</b>
+                                <input type="number" class="form-control" name="nast_rate" min="0" max="10" id="nast_rate" value="0" placeholder="Оцінка Насті">
                             </div>
                             <div class="col" align="center">
-                                <b>Андрохи</b>
-                                <input type="number" class="form-control" name="andr_rate" min="0" max="10" id="andr_rate" value="0" placeholder="Оцінка Андрохи">
-                            </div>
-                            <div class="col" align="center">
-                                <b>Артохи</b>
-                                <input type="number" class="form-control" name="artm_rate" min="0" max="10" id="artm_rate" value="0" placeholder="Оцінка Артохи">
-                            </div>
-                            <div class="col" align="center">
-                                <b>Макси</b>
-                                <input type="number" class="form-control" name="maks_rate" min="0" max="10" id="maks_rate" value="0" placeholder="Оцінка Макси">
-                            </div>
-                            <div class="col" align="center">
-                                <b>Переглянуто</b>
-                                <input type="date" class="form-control" name="date_created" id="date_created" placeholder="date_created">
-                            </div>
-                            <div class="col" align="center">
-                                <b>.</b>
+                                <b>Опції</b>
                                 <input type="submit" class="form-control" value="Додати" style="background-color:cornflowerblue; color:white;">
                             </div>
                         </div>
@@ -107,13 +88,9 @@
                     <tr>
                         <th onclick="sortTable(0)">#</th>
                         <th onclick="sortTable(1)">Фільм</th>
-                        <th onclick="sortTable(2)">Оцінка Діми Л</th>
-                        <th onclick="sortTable(3)">Оцінка Діми О</th>
-                        <th onclick="sortTable(4)">Оцінка Андрохи</th>
-                        <th onclick="sortTable(5)">Оцінка Артохи</th>
-                        <th onclick="sortTable(6)">Оцінка Макси</th>
-                        <th onclick="sortTable(7)">Загальна оцінка</th>
-                        <th onclick="sortTable(8)">Дата перегляду</th>
+                        <th onclick="sortTable(2)">Оцінка Діми</th>
+                        <th onclick="sortTable(3)">Оцінка Насті</th>
+                        <th onclick="sortTable(4)">Загальна оцінка</th>
                         <!--<th onclick="sortTable(5)">Опции</th>-->
                         <th>Опції</th>
                     </tr>
@@ -122,12 +99,8 @@
                         <td>{{ movie.id }}</td>
                         <td>{{ movie.content }}</td>
                         <td>{{ movie.diml_rate }}</td>
-                        <td>{{ movie.dimo_rate }}</td>
-                        <td>{{ movie.andr_rate }}</td>
-                        <td>{{ movie.artm_rate }}</td>
-                        <td>{{ movie.maks_rate }}</td>
-                        <td>{{ movie.diml_rate + movie.dimo_rate + movie.andr_rate + movie.artm_rate + movie.maks_rate }}</td>
-                        <td>{{ movie.date_created }}</td>
+                        <td>{{ movie.nast_rate }}</td>
+                        <td>{{ movie.diml_rate + movie.nast_rate }}</td>
                         <td>
                             <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>
                         </td>

@@ -11,28 +11,20 @@
         <div class="form">
             <form action="/update/{{movie.id}}" method="POST">
                 <div class="row">
-                    <div class="col">
+                    <div class="col" align="center">
+                        <b>Фільм</b>
                         <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму" value="{{movie.content}}">
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="diml_rate" min="0" max="10" id="diml_rate" placeholder="Оцінка Діми Л" value="{{movie.diml_rate}}">
+                    <div class="col" align="center">
+                        <b>Оцінка Діми</b>
+                        <input type="number" class="form-control" name="diml_rate" min="0" max="10" id="diml_rate" placeholder="Оцінка Діми" value="{{movie.diml_rate}}">
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="dimo_rate" min="0" max="10" id="dimo_rate" placeholder="Оцінка Діми О" value="{{movie.dimo_rate}}">
+                    <div class="col" align="center">
+                        <b>Оцінка Насті</b>
+                        <input type="number" class="form-control" name="nast_rate" min="0" max="10" id="nast_rate" placeholder="Оцінка Насті" value="{{movie.nast_rate}}">
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="andr_rate" min="0" max="10" id="andr_rate" placeholder="Оцінка Андрохи" value="{{movie.andr_rate}}">
-                    </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="artm_rate" min="0" max="10" id="artm_rate" placeholder="Оцінка Артохи" value="{{movie.artm_rate}}">
-                    </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="maks_rate" min="0" max="10" id="maks_rate" placeholder="Оцінка Макси" value="{{movie.maks_rate}}">
-                    </div>
-                    <div class="col">
-                        <input type="date" class="form-control" name="date_created" id="date_created" placeholder="Дата перегляду" value="{{movie.date_created}}">
-                    </div>
-                    <div class="col">
+                    <div class="col" align="center">
+                        <b>Опції</b>
                         <input type="submit" class="form-control" value="Оновити" style="background-color:cornflowerblue; color:white;">
                     </div>
                 </div>

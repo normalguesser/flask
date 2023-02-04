@@ -18,11 +18,7 @@ class MovieBase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
     diml_rate = db.Column(db.Integer, default=0)
-    dimo_rate = db.Column(db.Integer, default=0)
-    andr_rate = db.Column(db.Integer, default=0)
-    artm_rate = db.Column(db.Integer, default=0)
-    maks_rate = db.Column(db.Integer, default=0)
-    date_created = db.Column(db.String(200), nullable=False)
+    nast_rate = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<Task %r>' % self.id
@@ -30,7 +26,6 @@ class MovieBase(db.Model):
 class MovieToWatch(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     next_movie = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Task %r>' % self.id
@@ -49,7 +44,7 @@ def add():
             return 'Помилка: не вдалось додати фiльм.'
 
     else:
-        moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.date_created.desc()).all()
+        moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.id.desc()).all()
         return render_template('add.html', movies=moviesToWatch)
 
 @app.route('/', methods=['POST', 'GET'])
@@ -58,11 +53,7 @@ def index():
         
         movie_content = request.form['content']
         movie_diml_rate = request.form['diml_rate']
-        movie_dimo_rate = request.form['dimo_rate']
-        movie_andr_rate = request.form['andr_rate']
-        movie_artm_rate = request.form['artm_rate']
-        movie_maks_rate = request.form['maks_rate']
-        movie_date_created = request.form['date_created']
+        movie_nast_rate = request.form['nast_rate']
 
         if movie_content == '':
             return 'Помилка: заголовок не повинен бути порожнiм.'
@@ -74,35 +65,14 @@ def index():
         if int(movie_diml_rate) < 0:
             movie_diml_rate = '0'
 
-        if movie_dimo_rate == "":
-            movie_dimo_rate = '0'
-        if int(movie_dimo_rate) > 11:
-            movie_dimo_rate = '10'
-        if int(movie_dimo_rate) < 0:
-            movie_dimo_rate = '0'
+        if movie_nast_rate == "":
+            movie_nast_rate = '0'
+        if int(movie_nast_rate) > 11:
+            movie_nast_rate = '10'
+        if int(movie_nast_rate) < 0:
+            movie_nast_rate = '0'
 
-        if movie_andr_rate == "":
-            movie_andr_rate = '0'
-        if int(movie_andr_rate) > 11:
-            movie_andr_rate = '10'
-        if int(movie_andr_rate) < 0:
-            movie_andr_rate = '0'
-
-        if movie_artm_rate == "":
-            movie_artm_rate = '0'
-        if int(movie_artm_rate) > 11:
-            movie_artm_rate = '10'
-        if int(movie_artm_rate) < 0:
-            movie_artm_rate = '0'
-
-        if movie_maks_rate == "":
-            movie_maks_rate = '0'
-        if int(movie_maks_rate) > 11:
-            movie_maks_rate = '10'
-        if int(movie_maks_rate) < 0:
-            movie_maks_rate = '0'
-
-        new_movie = MovieBase(content=movie_content, diml_rate=movie_diml_rate, dimo_rate=movie_dimo_rate, andr_rate=movie_andr_rate, artm_rate=movie_artm_rate, maks_rate=movie_maks_rate, date_created=movie_date_created)
+        new_movie = MovieBase(content=movie_content, diml_rate=movie_diml_rate, nast_rate=movie_nast_rate)
 
         try:
             db.session.add(new_movie)
@@ -113,7 +83,7 @@ def index():
 
     else:
         movies = MovieBase.query.order_by(MovieBase.id.desc()).all()
-        moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.date_created.desc()).all()
+        moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.id.desc()).all()
 
         return render_template('index.html', movies=movies, moviesToWatch=moviesToWatch)
 
@@ -146,11 +116,7 @@ def update(id):
     if request.method == 'POST':
         movie.content = request.form['content']
         movie.diml_rate = request.form['diml_rate']
-        movie.dimo_rate = request.form['dimo_rate']
-        movie.andr_rate = request.form['andr_rate']
-        movie.artm_rate = request.form['artm_rate']
-        movie.maks_rate = request.form['maks_rate']
-        movie.date_created = request.form['date_created']
+        movie.nast_rate = request.form['nast_rate']
 
         if movie.content == '':
             return 'Помилка: заголовок не повинен бути порожнiм.'
@@ -162,33 +128,12 @@ def update(id):
         if int(movie.diml_rate) < 0:
             movie.diml_rate = '0'
 
-        if movie.dimo_rate == "":
-            movie.dimo_rate = '0'
-        if int(movie.dimo_rate) > 11:
-            movie.dimo_rate = '10'
-        if int(movie.dimo_rate) < 0:
-            movie.dimo_rate = '0'
-
-        if movie.andr_rate == "":
-            movie.andr_rate = '0'
-        if int(movie.andr_rate) > 11:
-            movie.andr_rate = '10'
-        if int(movie.andr_rate) < 0:
-            movie.andr_rate = '0'
-
-        if movie.artm_rate == "":
-            movie.artm_rate = '0'
-        if int(movie.artm_rate) > 11:
-            movie.artm_rate = '10'
-        if int(movie.artm_rate) < 0:
-            movie.artm_rate = '0'
-
-        if movie.maks_rate == "":
-            movie.maks_rate = '0'
-        if int(movie.maks_rate) > 11:
-            movie.maks_rate = '10'
-        if int(movie.maks_rate) < 0:
-            movie.maks_rate = '0'
+        if movie.nast_rate == "":
+            movie.nast_rate = '0'
+        if int(movie.nast_rate) > 11:
+            movie.nast_rate = '10'
+        if int(movie.nast_rate) < 0:
+            movie.nast_rate = '0'
 
         try:
             db.session.commit()
@@ -201,7 +146,7 @@ def update(id):
 
 @app.route('/random')
 def randomMovie():
-    moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.date_created.desc()).all()
+    moviesToWatch = MovieToWatch.query.order_by(MovieToWatch.id.desc()).all()
     if len(moviesToWatch) > 0:
         movie = random.choice(moviesToWatch)
         return render_template('random.html', movie=movie)
