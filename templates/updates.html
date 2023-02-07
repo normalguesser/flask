@@ -7,13 +7,13 @@
 {% block body %}
 <div class="container-fluid">
     <div class="content">
-        <h1>Оновити інформацію про фільм</h1>
+        <h1>Оновити інформацію про серіал</h1>
         <div class="form">
-            <form action="/update/{{movie.id}}" method="POST">
+            <form action="/updates/{{movie.id}}" method="POST">
                 <div class="row">
                     <div class="col" align="center">
-                        <b>Фільм</b>
-                        <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму" value="{{movie.content}}">
+                        <b>Серіал</b>
+                        <input type="text" class="form-control" name="content" id="content" placeholder="Назва серіалу" value="{{movie.content}}">
                     </div>
                     <div class="col" align="center">
                         <b>Оцінка Діми</b>

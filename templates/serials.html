@@ -52,10 +52,10 @@
 
     <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#home">Переглянуті фільми</a>
+            <a href="/" class="btn" role="button" aria-pressed="true">Переглянуті фільми</a>
         </li>
         <li class="nav-item">
-            <a href="/serials" class="btn" role="button" aria-pressed="true">Переглянуті серіали</a>
+            <a class="nav-link active" data-toggle="pill" href="#home">Переглянуті серіали</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="pill" href="#menu1">Подивитися наступного разу</a>
@@ -65,11 +65,11 @@
         <div id="home" class="container tab-pane active"><br>
             <div class="content">
                 <div class="form">
-                    <form action="/" method="POST">
+                    <form action="/serials" method="POST">
                         <div class="row">
                             <div class="col" align="center">
-                                <b>Фільм</b>
-                                <input type="text" class="form-control" name="content" id="content" placeholder="Назва фільму">
+                                <b>Серіал</b>
+                                <input type="text" class="form-control" name="content" id="content" placeholder="Назва серіалу">
                             </div>
                             <div class="col" align="center">
                                 <b>Оцінка Діми</b>
@@ -90,7 +90,7 @@
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" id="myTable">
                     <tr>
                         <th onclick="sortTable(0)">#</th>
-                        <th onclick="sortTable(1)">Фільм</th>
+                        <th onclick="sortTable(1)">Серіал</th>
                         <th onclick="sortTable(2)">Оцінка Діми</th>
                         <th onclick="sortTable(3)">Оцінка Насті</th>
                         <th onclick="sortTable(4)">Загальна оцінка</th>
@@ -105,7 +105,7 @@
                         <td>{{ movie.nast_rate }}</td>
                         <td>{{ movie.diml_rate + movie.nast_rate }}</td>
                         <td>
-                            <a href="/update/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>
+                            <a href="/updates/{{movie.id}}" class="btn btn-secondary active btn-sm" role="button" aria-pressed="true">Редагувати</a>
                         </td>
                     </tr>
                     {% endfor %}
