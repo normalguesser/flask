@@ -8,8 +8,8 @@ import random
 app = Flask(__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nrdl_user:WObWv7aoBHeI5ilj1ePdyAemX0RKQoct@dpg-cgdo3mm4dadbr0si98ng-a/nrdl'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nrdl_user:WObWv7aoBHeI5ilj1ePdyAemX0RKQoct@dpg-cgdo3mm4dadbr0si98ng-a/nrdl'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 heroku = Heroku(app)
 db = SQLAlchemy(app)
